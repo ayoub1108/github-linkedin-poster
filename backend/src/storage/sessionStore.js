@@ -1,7 +1,7 @@
 class SessionStore {
   constructor() {
     this.sessions = new Map();
-    console.log('📦 Session store initialized');
+    console.log('📦 Session store initialized (in-memory)');
   }
 
   set(sessionId, data, ttlSeconds = 86400) {
@@ -11,41 +11,37 @@ class SessionStore {
       expiresAt,
       createdAt: Date.now()
     });
-    console.log(`✅ Session created: ${sessionId}`);
-    console.log(`   Expires at: ${new Date(expiresAt).toLocaleString()}`);
+    console.log(`✅ Session created: ${sessionId.substring(0, 8)}...`);
     console.log(`   Active sessions: ${this.sessions.size}`);
-    
-    // Log what was stored (without full token)
-    if (data.accessToken) {
-      console.log(`   Token stored: ${data.accessToken.substring(0, 20)}...`);
-    }
+    return true;
   }
 
   get(sessionId) {
+    if (!sessionId) {
+      console.log('❌ No session ID provided');
+      return null;
+    }
+    
     const session = this.sessions.get(sessionId);
     if (!session) {
-      console.log(`❌ Session not found: ${sessionId}`);
-      console.log(`   Available sessions: ${Array.from(this.sessions.keys()).join(', ')}`);
+      console.log(`❌ Session not found: ${sessionId.substring(0, 8)}...`);
+      console.log(`   Available sessions: ${Array.from(this.sessions.keys()).map(k => k.substring(0, 8)).join(', ')}`);
       return null;
     }
     
     if (Date.now() > session.expiresAt) {
-      console.log(`⏰ Session expired: ${sessionId}`);
-      console.log(`   Expired at: ${new Date(session.expiresAt).toLocaleString()}`);
+      console.log(`⏰ Session expired: ${sessionId.substring(0, 8)}...`);
       this.sessions.delete(sessionId);
       return null;
     }
     
-    console.log(`✅ Session retrieved: ${sessionId}`);
-    if (session.data.accessToken) {
-      console.log(`   Token: ${session.data.accessToken.substring(0, 20)}...`);
-    }
+    console.log(`✅ Session found: ${sessionId.substring(0, 8)}...`);
     return session.data;
   }
 
   delete(sessionId) {
     this.sessions.delete(sessionId);
-    console.log(`🗑️ Session deleted: ${sessionId}`);
+    console.log(`🗑️ Session deleted: ${sessionId.substring(0, 8)}...`);
   }
 }
 
