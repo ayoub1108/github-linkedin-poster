@@ -5,6 +5,8 @@ Transform any GitHub repository into an engaging LinkedIn post with AI. Generate
 **Live Demo:** [https://github-linkedin-poster.vercel.app](https://github-linkedin-poster.vercel.app) | **Backend API:** [https://linkedin-backend-28tv.onrender.com](https://linkedin-backend-28tv.onrender.com) | **Health Check:** [https://linkedin-backend-28tv.onrender.com/api/health](https://linkedin-backend-28tv.onrender.com/api/health)
 
 ---
+<img width="1804" height="753" alt="image" src="https://github.com/user-attachments/assets/7d32c966-708e-4546-8330-b908236f73c5" />
+
 
 ## ✨ Features
 
