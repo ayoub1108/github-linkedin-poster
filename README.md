@@ -119,3 +119,38 @@ Environment Variable: REACT_APP_API_URL = your Render backend URL + /api
 Deploy
 
 
+
+#Structure
+
+
+github-linkedin-poster/
+├── backend/
+│   ├── src/
+│   │   ├── config/env.js
+│   │   ├── controllers/
+│   │   │   ├── generate.controller.js
+│   │   │   └── linkedin.controller.js
+│   │   ├── routes/
+│   │   │   ├── generate.routes.js
+│   │   │   └── linkedin.routes.js
+│   │   ├── services/
+│   │   │   ├── github.service.js
+│   │   │   ├── llm.service.js
+│   │   │   └── linkedin.service.js
+│   │   ├── storage/sessionStore.js
+│   │   ├── app.js
+│   │   └── index.js
+│   ├── .env.example
+│   └── package.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── services/api.js
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── public/
+│   ├── .env.example
+│   └── package.json
+├── render.yaml
+└── README.md
+
