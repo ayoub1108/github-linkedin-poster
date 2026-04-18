@@ -71,3 +71,51 @@ cd backend && npm run dev
 
 # Terminal 2 - Frontend (port 3000)
 cd frontend && npm start
+PORT=3001
+NODE_ENV=development
+GROQ_API_KEY=your_groq_api_key
+GITHUB_TOKEN=your_github_token (optional)
+LINKEDIN_CLIENT_ID=your_client_id
+LINKEDIN_CLIENT_SECRET=your_client_secret
+LINKEDIN_REDIRECT_URI=http://localhost:3001/api/linkedin/callback
+CORS_ORIGINS=http://localhost:3000
+
+
+🔑 Getting API Keys
+Groq API (Free): https://console.groq.com → Sign up → API Keys → Create New Key
+
+LinkedIn OAuth: https://linkedin.com/developers → Create App → Add Products (Sign In with LinkedIn + Share on LinkedIn) → Copy Client ID & Secret → Add redirect URI: http://localhost:3001/api/linkedin/callback
+
+GitHub Token (Optional): https://github.com/settings/tokens → Generate classic token → No scopes needed
+🚀 Deployment
+Backend (Render):
+
+Push code to GitHub
+
+Create Web Service on render.com
+
+Root Directory: backend
+
+Build Command: npm install
+
+Start Command: npm start
+
+Add all environment variables
+
+Deploy
+
+Frontend (Vercel):
+
+Push code to GitHub
+
+Import project on vercel.com
+
+Framework: Create React App
+
+Root Directory: frontend
+
+Environment Variable: REACT_APP_API_URL = your Render backend URL + /api
+
+Deploy
+
+
