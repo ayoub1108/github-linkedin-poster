@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: linkedin-backend
+    runtime: node
+    repo: https://github.com/ayoub1108/github-linkedin-poster
+    branch: main
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: LINKEDIN_CLIENT_ID
+        sync: false
+      - key: LINKEDIN_CLIENT_SECRET
+        sync: false
+      - key: LINKEDIN_REDIRECT_URI
+        value: https://linkedin-backend.onrender.com/api/linkedin/callback
+      - key: CORS_ORIGINS
+        value: https://linkedin-frontend.onrender.com
